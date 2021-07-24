@@ -4,7 +4,6 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./.env" });
 
 const app = require("./app");
-const port = process.env.PORT || 4000;
 
 // for other types of error
 process.on("uncaughtException", (err) => {
@@ -25,7 +24,7 @@ mongoose
   .catch(() => {
     console.log("Error connecting database");
   });
-const server = app.listen(port, "localhost");
+const server = app.listen(process.env.PORT || 4000);
 
 // for all the unhandled promise rejection
 process.on("unhandledRejection", (err) => {
