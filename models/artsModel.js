@@ -38,7 +38,7 @@ const artsSchema = new mongoose.Schema(
 artsSchema.pre(/^find/, function (next) {
   this.populate({
     path: "artist",
-    select: "name imageUrl",
+    select: "-_id name imageUrl",
   });
   next();
 });

@@ -1,6 +1,7 @@
 // libraries
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 // utils
 const AppError = require("./utils/appError");
@@ -8,6 +9,7 @@ const globalErrorHandler = require("./controllers/errorController");
 
 // body parser
 app.use(express.json({}));
+app.use(cors());
 
 // routers
 const artistRouter = require("./routes/artistRouter");
@@ -20,7 +22,6 @@ app.use("/api/v1/art", artRouter);
 // all other routes
 app.all("*", (req, res, next) => {
   // call global handler
-  console.log("yes idr se");
   next(new AppError("The requested resource does not exist" + req.url, 404));
 });
 

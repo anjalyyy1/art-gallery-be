@@ -3,7 +3,7 @@ const Artist = require("../models/artistModel");
 
 // get all artist
 const getAllArtist = catchAsync(async (req, res, next) => {
-  const allArtist = await Artist.find();
+  const allArtist = await Artist.find().select("_id name imageUrl");
 
   res.status(200).json({
     status: "success",
