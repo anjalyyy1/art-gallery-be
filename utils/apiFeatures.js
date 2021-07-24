@@ -13,7 +13,7 @@ class APIFeatures {
     } else {
       this.query = this.query.sort("-createdAt");
     }
-    return this; // so that we can chain more methods to it
+    return this;
   }
 }
 

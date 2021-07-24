@@ -1,4 +1,3 @@
-// this file will be the entry point for all the configurations
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./.env" });
@@ -24,6 +23,7 @@ mongoose
   .catch(() => {
     console.log("Error connecting database");
   });
+
 const server = app.listen(process.env.PORT || 4000);
 
 // for all the unhandled promise rejection
