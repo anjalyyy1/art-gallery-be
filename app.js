@@ -19,6 +19,10 @@ const artRouter = require("./routes/artsRouter");
 app.use("/api/v1/artist", artistRouter);
 app.use("/api/v1/art", artRouter);
 
+app.get("/", (req, res) => {
+  res.send("Hello from server");
+});
+
 // all other routes
 app.all("*", (req, res, next) => {
   // call global handler
